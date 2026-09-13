@@ -9,6 +9,6 @@ public class KubernetesController {
 
     @GetMapping("/message")
     public String getMessage() {
-        return "Deployed Spring Application into the Kubernetes Pod";
+        return "Your Spring Application Deployed into the Kubernetes";
     }
 }
