@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubernetes-k8s-config
+data:
+  MYSQL_DATABASE : mydatabase
+  MYSQL_SERVICE : mysql-service
+
+
+

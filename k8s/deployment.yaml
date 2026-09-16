@@ -19,8 +19,34 @@ spec:
     spec:
       containers:
         - name: kubernetes-k8s-container
-          image: kubernetes-k8s:1.0
+          image: kubernetes-k8s:3.0
           imagePullPolicy: Never
+
+          env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: kubernetes-k8s-config
+                  key: MYSQL_DATABASE
+
+            - name: MYSQL_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: kubernetes-k8s-config
+                  key: MYSQL_SERVICE
+
+            - name: MYSQL_ROOT_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-k8s-secret
+                  key: MYSQL_ROOT_USER_NAME
+
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-k8s-secret
+                  key: MYSQL_ROOT_PASSWORD
+
 
           ports:
             - containerPort: 8080
