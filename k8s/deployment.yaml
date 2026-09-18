@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: kubernetes-k8s-container
-          image: kubernetes-k8s:5.0
+          image: kubernetes-k8s:6.0
           imagePullPolicy: Never
 
           env:
@@ -57,7 +57,7 @@ spec:
               port: 8080
 
             periodSeconds: 5
-            failureThreshold: 3
+            failureThreshold: 30
 
           readinessProbe:
               httpGet:
@@ -74,3 +74,12 @@ spec:
 
               periodSeconds: 5
               failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: "3"
+              memory: "900Mi"
+
+            limits:
+              cpu: "4"
+              memory: "2000Mi"
